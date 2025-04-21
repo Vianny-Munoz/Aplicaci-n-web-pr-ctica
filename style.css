@@ -116,7 +116,7 @@ main p {
 }
 /* --- LOGIN SECTION --- */
 .login-section {
-    display: flex;
+    display: flex ;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -140,7 +140,7 @@ main p {
   }
   
   .login-image img {
-    max-width: 90%;
+    max-width: 80%;
     height: auto;
   }
   
@@ -220,4 +220,46 @@ main p {
     color: #333;
     font-weight: bold;
   }
+  .hidden {
+    display: none !important;
+  }
+
+  .form-register input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+  }
+  /* --- LOGIN SECTION --- */
+.form-register {
+    display: flex;
+    flex-direction: row; /* Asegura que la imagen y el formulario estén en una fila */
+    justify-content: center;
+    align-items: center;
+}
+
+.form-register .login-image {
+    flex: 1;
+    background: #e0f7e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-register .login-image img {
+    max-width: 80%;
+    height: auto;
+}
+
+.form-register .login-form {
+    flex: 1;
+    padding: 40px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+  
   
