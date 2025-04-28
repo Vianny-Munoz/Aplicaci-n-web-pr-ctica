@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos - La Tulpa</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <div class="navbar">
+      <img src="imagenes/Logo.png" alt="Logo Universidad de Nariño" class="logo">
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="#Restaurantes">Restaurantes</a></li>
+          <li><a href="#Clientes">Clientes</a></li>
+          <li><a href="#Pedidos">Pedidos</a></li>
+          <li><a href="#Informacion">Información</a></li>
+          <li><a href="#Login">Iniciar Sesión</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- Carrito de compras visual -->
+    <div id="carrito" class="carrito">
+        <h3>🛒 Carrito</h3>
+        <ul id="carrito-lista">
+        <!-- Aquí se agregarán los productos -->
+        </ul>
+        <p id="mensaje-carrito" class="mensaje-carrito"></p> <!-- Mensaje de advertencia -->
+    </div>
+  </header>
+
+  <main>
+    <section class="productos-section">
+      <h2>Nuestros Productos</h2>
+      <div class="productos-container">
+        
+        <!-- Producto 1 -->
+        <div class="producto-card">
+          <div class="producto-imagen">
+            <img src="imagenes/producto1.png" alt="Manzanas Orgánicas">
+          </div>
+          <h3>Manzanas Orgánicas</h3>
+          <p>Deliciosas manzanas frescas y naturales.</p>
+          <button class="add-to-cart-btn" onclick="agregarAlCarrito('Manzanas Orgánicas')">Agregar al carrito</button>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="producto-card">
+          <div class="producto-imagen">
+            <img src="imagenes/producto2.png" alt="Queso Artesanal">
+          </div>
+          <h3>Queso Artesanal</h3>
+          <p>Queso fresco producido por campesinos locales.</p>
+          <button class="add-to-cart-btn" onclick="agregarAlCarrito('Queso Artesanal')">Agregar al carrito</button>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="producto-card">
+          <div class="producto-imagen">
+            <img src="imagenes/producto3.png" alt="Café Orgánico">
+          </div>
+          <h3>Café Orgánico</h3>
+          <p>Auténtico café de las montañas de Nariño.</p>
+          <button class="add-to-cart-btn" onclick="agregarAlCarrito('Café Orgánico')">Agregar al carrito</button>
+        </div>
+
+        <!-- Producto 4 -->
+        <div class="producto-card">
+          <div class="producto-imagen">
+            <img src="imagenes/producto4.png" alt="Miel Pura">
+          </div>
+          <h3>Miel Pura</h3>
+          <p>Miel 100% natural, cosechada sin aditivos.</p>
+          <button class="add-to-cart-btn" onclick="agregarAlCarrito('Miel Pura')">Agregar al carrito</button>
+        </div>
+
+        <!-- Producto 5 -->
+        <div class="producto-card">
+          <div class="producto-imagen">
+            <img src="imagenes/producto5.png" alt="Frijol Orgánico">
+          </div>
+          <h3>Frijol Orgánico</h3>
+          <p>Frijoles cultivados sin químicos.</p>
+          <button class="add-to-cart-btn" onclick="agregarAlCarrito('Frijol Orgánico')">Agregar al carrito</button>
+        </div>
+
+        <!-- Producto 6 -->
+        <div class="producto-card">
+          <div class="producto-imagen">
+            <img src="imagenes/producto6.png" alt="Tomates Cherry">
+          </div>
+          <h3>Tomates Cherry</h3>
+          <p>Tomates pequeños, jugosos y llenos de sabor.</p>
+          <button class="add-to-cart-btn" onclick="agregarAlCarrito('Tomates Cherry')">Agregar al carrito</button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

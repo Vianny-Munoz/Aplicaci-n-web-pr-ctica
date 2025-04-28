@@ -32,5 +32,25 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('Formulario de login visible');
     });
 });
+// Simular si el usuario ha iniciado sesión
+let usuarioLogueado = false; // Cambiar a true si el usuario inicia sesión correctamente
+
+function agregarAlCarrito(nombreProducto) {
+    const mensajeCarrito = document.getElementById('mensaje-carrito');
+
+    if (!usuarioLogueado) {
+        mensajeCarrito.textContent = '⚠️ Primero debes iniciar sesión para agregar productos al carrito.';
+    } else {
+        // Agregar el producto a la lista del carrito
+        const carritoLista = document.getElementById('carrito-lista');
+        const nuevoProducto = document.createElement('li');
+        nuevoProducto.textContent = nombreProducto;
+        carritoLista.appendChild(nuevoProducto);
+
+        mensajeCarrito.textContent = ''; // Limpia el mensaje si el usuario ya está logueado
+    }
+}
+
+
 
             
