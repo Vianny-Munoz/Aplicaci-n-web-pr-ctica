@@ -1,45 +1,48 @@
-document.getElementById ('show-register').addEventListener('click', function(e){
-    e.preventDefault();
-    document.querySelector('.form-login').style.display = 'none';
-    document.querySelector('.form-register').style.display = 'block';
-    console.log('Formulario de registro visible');
-});
+// document.getElementById ('show-register').addEventListener('click', function(e){
+//     e.preventDefault();
+//     document.querySelector('.form-login').style.display = 'none';
+//     document.querySelector('.form-register').style.display = 'block';
+//     console.log('Formulario de registro visible');
+// });
 
-document.getElementById('show-login').addEventListener('click', function(e){
-    e.preventDefault();
-    document.querySelector('.form-login').style.display = 'block';
-    document.querySelector('.form-register').style.display = 'none';
-});
+// document.getElementById('show-login').addEventListener('click', function(e){
+//     e.preventDefault();
+//     document.querySelector('.form-login').style.display = 'block';
+//     document.querySelector('.form-register').style.display = 'none';
+// });
 
     
 document.addEventListener("DOMContentLoaded", function () {
-    const showRegister = document.getElementById('show-register');
-    const showLogin = document.getElementById('show-login');
-    const loginForm = document.querySelector('.form-login');
-    const registerForm = document.querySelector('.form-register');
+  const showRegister = document.getElementById('show-register');
+  const showLogin = document.getElementById('show-login');
 
+  if (showRegister) {
     showRegister.addEventListener('click', function (e) {
-        e.preventDefault();
+      e.preventDefault();
+      const loginForm = document.querySelector('.form-login');
+      const registerForm = document.querySelector('.form-register');
+      if (loginForm && registerForm) {
         loginForm.classList.add('hidden');
         registerForm.classList.remove('hidden');
-        console.log('Formulario de registro visible');
+      }
     });
+  }
 
+  if (showLogin) {
     showLogin.addEventListener('click', function (e) {
-        e.preventDefault();
+      e.preventDefault();
+      const loginForm = document.querySelector('.form-login');
+      const registerForm = document.querySelector('.form-register');
+      if (loginForm && registerForm) {
         registerForm.classList.add('hidden');
         loginForm.classList.remove('hidden');
-        console.log('Formulario de login visible');
+      }
     });
-      //Recuperar el carrito del localStorage
-    const carritoGuardado = localStorage.getItem("carrito");
-    if (carritoGuardado) {
-        carrito = JSON.parse(carritoGuardado);
-        actualizarCarrito();
-    }
+  }
 });
+
 // Simular si el usuario ha iniciado sesión
-//let usuarioado = false; // Cambiar a true si el usuario inicia sesión correctamente*** Descomentar o arreglar con login funcional
+//let usuarioLogueado = false; // Cambiar a true si el usuario inicia sesión correctamente*** Descomentar o arreglar con login funcional
 
 let carrito = [];
 
@@ -87,12 +90,21 @@ function actualizarCarrito() {
 
     // Guardar el carrito en localStorage para evitar pérdidas al recargar página
     localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    console.log("Carrito actualizado:", carrito);
 }
 
 function eliminarProducto(index) {
   carrito.splice(index, 1);
   actualizarCarrito();
 }
+
+function irAPedidos() {
+  // Guarda el carrito en localStorage antes de redirigir
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  window.location.href = "pedidos.php";
+}
+
 
 
 

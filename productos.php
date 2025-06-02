@@ -17,7 +17,7 @@
           <li><a href="index.php">Inicio</a></li>
           <li><a href="productos.html">Productos</a></li>
           <li><a href="#Clientes">Clientes</a></li>
-          <li><a href="pedidos.html">Pedidos</a></li>
+          <li><a href="pedidos.php">Pedidos</a></li>
           <li><a href="#Informacion">Información</a></li>
           <li><a href="#Login">Iniciar Sesión</a></li>
         </ul>
@@ -113,7 +113,7 @@
           <p>Tomates pequeños, jugosos y llenos de sabor.</p>
           <p><strong>Precio: $8.000</strong></p>
           <label>Cantidad:</label>
-          <input type="number" id="cantidad-frijol" value="1" min="1" style="width: 60px;">
+          <input type="number" id="cantidad-tomate" value="1" min="1" style="width: 60px;">
           <button class="add-to-cart-btn" onclick="agregarAlCarrito('Tomates Cherry', 8000, 'cantidad-tomate')">Agregar al carrito</button>
         </div>
 
