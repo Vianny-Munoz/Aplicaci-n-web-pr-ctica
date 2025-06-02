@@ -14,7 +14,7 @@
       <img src="imagenes/Logo.png" alt="Logo Universidad de Nariño" class="logo">
       <nav>
         <ul>
-          <li><a href="index.html">Inicio</a></li>
+          <li><a href="index.php">Inicio</a></li>
           <li><a href="productos.html">Productos</a></li>
           <li><a href="#Clientes">Clientes</a></li>
           <li><a href="pedidos.html">Pedidos</a></li>

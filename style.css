@@ -357,6 +357,37 @@ main p {
   text-align: center;
 }
 
+.toast-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    font-size: 16px;
+    z-index: 1000;
+    opacity: 0.95;
+    animation: fadeOut 4s forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 0.95;
+        transform: translateY(0);
+    }
+    80% {
+        opacity: 0.95;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+
 
   
   
