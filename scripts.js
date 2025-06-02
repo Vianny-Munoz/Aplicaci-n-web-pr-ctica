@@ -31,24 +31,67 @@ document.addEventListener("DOMContentLoaded", function () {
         loginForm.classList.remove('hidden');
         console.log('Formulario de login visible');
     });
+      //Recuperar el carrito del localStorage
+    const carritoGuardado = localStorage.getItem("carrito");
+    if (carritoGuardado) {
+        carrito = JSON.parse(carritoGuardado);
+        actualizarCarrito();
+    }
 });
 // Simular si el usuario ha iniciado sesión
-let usuarioLogueado = false; // Cambiar a true si el usuario inicia sesión correctamente
+//let usuarioado = false; // Cambiar a true si el usuario inicia sesión correctamente*** Descomentar o arreglar con login funcional
 
-function agregarAlCarrito(nombreProducto) {
-    const mensajeCarrito = document.getElementById('mensaje-carrito');
+let carrito = [];
 
-    if (!usuarioLogueado) {
-        mensajeCarrito.textContent = '⚠️ Primero debes iniciar sesión para agregar productos al carrito.';
-    } else {
-        // Agregar el producto a la lista del carrito
-        const carritoLista = document.getElementById('carrito-lista');
-        const nuevoProducto = document.createElement('li');
-        nuevoProducto.textContent = nombreProducto;
-        carritoLista.appendChild(nuevoProducto);
+function agregarAlCarrito(nombre, precio, cantidadId) {
+  const cantidad = parseInt(document.getElementById(cantidadId).value);
 
-        mensajeCarrito.textContent = ''; // Limpia el mensaje si el usuario ya está logueado
-    }
+  if (isNaN(cantidad) || cantidad < 1) {
+    alert("Cantidad inválida");
+    return;
+  }
+
+  // Revisar si el producto ya está en el carrito
+  const existente = carrito.find(p => p.nombre === nombre);
+  if (existente) {
+    existente.cantidad += cantidad;
+  } else {
+    carrito.push({ nombre, precio, cantidad });
+  }
+
+  actualizarCarrito();
+}
+
+function actualizarCarrito() {
+  const lista = document.getElementById("carrito-lista");
+  const mensaje = document.getElementById("mensaje-carrito");
+  lista.innerHTML = "";
+
+  let total = 0;
+
+  carrito.forEach((producto, index) => {
+    const subtotal = producto.precio * producto.cantidad;
+    total += subtotal;
+
+    const li = document.createElement("li");
+    li.innerHTML = `
+      ${producto.nombre} x${producto.cantidad} - $${subtotal.toLocaleString()} 
+      <button onclick="eliminarProducto(${index})">❌</button>
+    `;
+    lista.appendChild(li);
+  });
+
+  mensaje.textContent = carrito.length === 0
+    ? "Tu carrito está vacío."
+    : `🧾 Total: $${total.toLocaleString()}`;
+
+    // Guardar el carrito en localStorage para evitar pérdidas al recargar página
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+function eliminarProducto(index) {
+  carrito.splice(index, 1);
+  actualizarCarrito();
 }
 
 
