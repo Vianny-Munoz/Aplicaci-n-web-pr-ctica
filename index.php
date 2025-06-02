@@ -109,11 +109,12 @@
                     <h2> Crear cuenta</h2>
 
                     <form action="registrar.php" method="POST">
+                    
                      <!-- <form action="/register" method="POST"> -->
-                        <input type="text" placeholder="Nombres" name = "nombre" required>
-                        <input type="text" placeholder="Apellidos" name = "apellido" required>
+                        <input type="text" placeholder="Nombres" name = "nombres" required>
+                        <input type="text" placeholder="Apellidos" name = "apellidos" required>
                         <input type="text" placeholder="Usuario" name="usuario" required>
-                        <input type="password" placeholder="Contraseña" name="password" required>
+                        <input type="password" placeholder="Contraseña" name="contrasena" required>
                         <input type="text" placeholder="Cedula" name="cedula" required>
                         <input type = "text" placeholder="Correo Electrónico" name="correo" required>
                         <input type="text" placeholder="Telefono" name="telefono" required>
