@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <!-- Aquí se incluirá el contenido visible de la página -->
+
          <!-- Encabezado -->
          <header>
             <div class="navbar">
@@ -24,7 +24,7 @@
                 <!-- Menú de navegación -->
                 <nav>
                     <ul>
-                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="productos.php">Productos</a></li>
                         <li><a href="#Clientes">Clientes</a></li>
                         <li><a href="pedidos.html">Pedidos</a></li>
                         <li><a href="#Informacion">Información</a></li>
@@ -83,11 +83,10 @@
                     <img src="imagenes/img_login.png" alt="Imagen de login">
                 </div>
                 
-
                 <!----formulario de INICIAR SESION-->
                 <div class = "login-form form-login">
                     <h2>Bienvenido!</h2>
-                    <form action="/login" method="POST">    
+                    <form action="login.php" method="POST">    
                         <input type="text" placeholder="Usuario" name="usuario" required>
                         <input type="password" placeholder="Contraseña" name="password" required>
                         <button type="submit" class="login-btn">Iniciar Sesión</button>
@@ -160,6 +159,22 @@
                 </a>
             </p>
         </footer>
+
+        <?php
+        if (isset($_GET['mensaje']) && $_GET['mensaje'] === 'registro_exitoso') {
+            echo "<script>alert('✅ Registro exitoso, Por favor inicia sesión');</script>";
+        }
+        if (isset($_GET['error']) && $_GET['error'] === 'cedula_o_usuario_existente') {
+            echo "<script>alert('⚠️ La cédula o el usuario ya están registrados. Inicia sesión con tu usuario y contraseña.');</script>";
+        }
+        if (isset($_GET['error']) && $_GET['error'] === 'error_al_guardar') {
+            echo "<script>alert('❌ Ocurrió un error al guardar los datos');</script>";
+        }
+        if (isset($_GET['error']) && $_GET['error'] == 1) {
+            echo "<script>alert('❌ Usuario o contraseña incorrectos.');</script>";
+        }
+        ?>
+
         
     </body>
  </html>

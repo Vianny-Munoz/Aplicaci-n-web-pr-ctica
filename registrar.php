@@ -20,12 +20,10 @@ $stmt = mysqli_prepare($conexion, $sql);
 mysqli_stmt_bind_param($stmt, "sssssssss", $nombres, $apellidos, $usuario, $contrasena, $cedula, $correo, $telefono, $direccion, $fecha_nacimiento);
 
 if (mysqli_stmt_execute($stmt)) {
-    echo "Registro correcto. Redirigiendo...";
-     header("Location: index.php#Login");
+    header("Location: index.php?mensaje=registro_exitoso#Login");
     exit();
-
 } else {
-    echo "Error. " . mysqli_stmt_error($stmt);
+    header("Location: index.php?error=error_al_guardar#Login");
+    exit();
 }
-
 ?>
