@@ -46,20 +46,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
 let carrito = [];
 
-function agregarAlCarrito(nombre, precio, cantidadId) {
-  const cantidad = parseInt(document.getElementById(cantidadId).value);
+function agregarAlCarrito(id, nombre, precio, cantidadId) {
+    const cantidad = parseInt(document.getElementById(cantidadId).value);
 
   if (isNaN(cantidad) || cantidad < 1) {
     alert("Cantidad inválida");
     return;
   }
+  // Aquí se imprime el ID, nombre y precio del producto cuando se agrega al carrito
+  console.log("Producto agregado al carrito:");
+  console.log("ID:", id);  
+  console.log("Nombre:", nombre);  
+  console.log("Precio:", precio);  
 
   // Revisar si el producto ya está en el carrito
   const existente = carrito.find(p => p.nombre === nombre);
   if (existente) {
     existente.cantidad += cantidad;
   } else {
-    carrito.push({ nombre, precio, cantidad });
+    carrito.push({id, nombre, precio, cantidad });
   }
 
   actualizarCarrito();

@@ -40,6 +40,8 @@
         </tbody>
     </table>
     <p id="total-pedido"></p>
+    <button onclick="confirmarPedido()">Confirmar pedido</button>
+    <p id="mensaje-confirmacion"></p>
   </section>
 </main>
 
@@ -70,6 +72,31 @@
       ? "🛒 No hay productos en tu pedido."
       : `🧾 Total del pedido: $${total.toLocaleString()}`;
   });
+</script>
+<script>
+  function confirmarPedido() {
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    if (carrito.length === 0) {
+      document.getElementById("mensaje-confirmacion").textContent = "⚠️ No hay productos para guardar.";
+      return;
+    }
+
+    fetch("guardar_pedido.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ carrito })
+    })
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("mensaje-confirmacion").textContent = data;
+      localStorage.removeItem("carrito");
+    })
+    .catch(error => {
+      console.error("Error al guardar:", error);
+      document.getElementById("mensaje-confirmacion").textContent = "❌ Error al guardar el pedido.";
+    });
+  }
 </script>
 
 </body>

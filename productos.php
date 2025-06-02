@@ -1,3 +1,16 @@
+<?php
+include 'ConexionDB/conexion.php'; 
+// Obtener los productos
+$sql = "SELECT * FROM productos";  // De la tabla productos
+$resultado = mysqli_query($conexion, $sql);
+
+if ($resultado && mysqli_num_rows($resultado) > 0) {
+    $productos = mysqli_fetch_all($resultado, MYSQLI_ASSOC);  // Convertir el resultado a un array asociativo
+} else {
+    $productos = [];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -49,7 +62,7 @@
           <p><strong>Precio: $2.000</strong></p>
           <label>Cantidad:</label>
           <input type="number" id="cantidad-manzana" value="1" min="1" style="width: 60px;">
-          <button class="add-to-cart-btn" onclick="agregarAlCarrito('Manzanas Orgánicas x Unidad', 2000, 'cantidad-manzana')">Agregar al carrito</button>
+          <button class="add-to-cart-btn" onclick="agregarAlCarrito(2,'Manzanas Orgánicas x Unidad', 2000, 'cantidad-manzana')">Agregar al carrito</button>
         </div>
 
         <!-- Producto 2 -->
@@ -62,7 +75,7 @@
           <p><strong>Precio: $5.000</strong></p>
           <label>Cantidad:</label>
           <input type="number" id="cantidad-queso" value="1" min="1" style="width: 60px;">
-          <button class="add-to-cart-btn" onclick="agregarAlCarrito('Queso Artesanal', 5000, 'cantidad-queso')">Agregar al carrito</button>
+          <button class="add-to-cart-btn" onclick="agregarAlCarrito(3,'Queso Artesanal', 5000, 'cantidad-queso')">Agregar al carrito</button>
         </div>
 
         <!-- Producto 3 -->
@@ -75,7 +88,7 @@
           <p><strong>Precio: $24.000</strong></p>
           <label>Cantidad:</label>
           <input type="number" id="cantidad-cafe" value="1" min="1" style="width: 60px;">
-          <button class="add-to-cart-btn" onclick="agregarAlCarrito('Café Orgánico', 24000, 'cantidad-cafe')">Agregar al carrito</button>       
+          <button class="add-to-cart-btn" onclick="agregarAlCarrito(4, 'Café Orgánico', 24000, 'cantidad-cafe')">Agregar al carrito</button>       
         </div>
 
         <!-- Producto 4 -->
@@ -88,7 +101,7 @@
           <p><strong>Precio: $23.000</strong></p>
           <label>Cantidad:</label>
           <input type="number" id="cantidad-miel" value="1" min="1" style="width: 60px;">
-          <button class="add-to-cart-btn" onclick="agregarAlCarrito('Miel Natural', 23000, 'cantidad-miel')">Agregar al carrito</button>
+          <button class="add-to-cart-btn" onclick="agregarAlCarrito(1,'Miel Pura x 500gr', 23000, 'cantidad-miel')">Agregar al carrito</button>
         </div>
 
         <!-- Producto 5 -->
@@ -101,7 +114,7 @@
           <p><strong>Precio: $11.000</strong></p>
           <label>Cantidad:</label>
           <input type="number" id="cantidad-frijol" value="1" min="1" style="width: 60px;">
-          <button class="add-to-cart-btn" onclick="agregarAlCarrito('Frijol Orgánico', 11000, 'cantidad-frijol')">Agregar al carrito</button>
+          <button class="add-to-cart-btn" onclick="agregarAlCarrito(5, 'Frijol Orgánico', 11000, 'cantidad-frijol')">Agregar al carrito</button>
         </div>
 
         <!-- Producto 6 -->
@@ -114,7 +127,7 @@
           <p><strong>Precio: $8.000</strong></p>
           <label>Cantidad:</label>
           <input type="number" id="cantidad-tomate" value="1" min="1" style="width: 60px;">
-          <button class="add-to-cart-btn" onclick="agregarAlCarrito('Tomates Cherry', 8000, 'cantidad-tomate')">Agregar al carrito</button>
+          <button class="add-to-cart-btn" onclick="agregarAlCarrito(6, 'Tomates Cherry', 8000, 'cantidad-tomate')">Agregar al carrito</button>
         </div>
 
       </div>
